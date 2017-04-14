@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+	default-lazy-init="false">
+   
+	<context:annotation-config />
+		<context:component-scan base-package="com.renren.monitor">
+	</context:component-scan>
+
+	<bean id="jade.dataSource.com.renren.monitor.dao" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/visualization?useUnicode=true&amp;characterEncoding=utf8"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="chenxinyi"></property>
+		
+	
+
+	</bean> 
+	 
+	<!--
+	<bean id="jade.dataSource.com.renren.monitor.dao" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://10.4.36.39:3306/im_logmonitor_test?useUnicode=true&amp;characterEncoding=utf8"></property>
+		<property name="username" value="rr_oper@XN"></property>
+		<property name="password" value="DE7C5B83A66@XN"></property>
+		
+	
+
+	</bean>
+	
+ -->
+ <!--
+ <bean id="jade.dataSource.com.renren.monitor.dao" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://10.4.24.49:3307/test?useUnicode=true&amp;characterEncoding=utf8"></property>
+		<property name="username" value="im"></property>
+		<property name="password" value="im@1234"></property>
+		
+	
+
+	</bean>
+-->
+</beans>

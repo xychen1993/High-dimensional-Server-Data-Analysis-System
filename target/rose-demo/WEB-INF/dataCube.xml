@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Schema name="Mondrian">
+
+<Cube name="dataCube" >
+   <Table name="data_fact" />
+    
+
+    
+ <Dimension name="TAG"  foreignKey="tag_sk" >
+        <Hierarchy hasAll="true" primaryKey="id">          
+			<Table name="dim_tag" />
+			<Level name="serviceId" column="serviceId" uniqueMembers="true" /> 
+			<Level name="endPoint" column="endPoint" uniqueMembers="false" />           
+			<Level name="tag" column="tag" uniqueMembers="false" />           		
+        </Hierarchy>
+ </Dimension>   
+	
+	
+ <Dimension name="TIME" foreignKey="time_sk" >
+        <Hierarchy  hasAll="TRUE" primaryKey="id" >
+           <Table name="dim_time" />
+            <Level name="year" column="year" uniqueMembers="true" />
+		    <Level name="month" column="month" uniqueMembers="false" />
+		    <Level name="day" column="day" uniqueMembers="false" />
+		    <Level name="hour" column="hour" uniqueMembers="false" />
+		    <Level name="minute" column="minute" uniqueMembers="false" />
+
+        </Hierarchy>
+ </Dimension>
+ 
+ <Measure name="avg" column="avg" aggregator="sum" />
+    <Measure name="count" column="count" aggregator="sum" />
+	 <Measure name="alert_value_multi" column="avgMultiWarningValue" aggregator="sum" />
+	 <Measure name="alert_value" column="alertValue" aggregator="sum" />
+	 <Measure name="num_count" column="numCount" aggregator="sum" />
+
+</Cube>
+
+	
+	
+</Schema>

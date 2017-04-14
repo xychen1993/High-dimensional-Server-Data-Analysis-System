@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	
+	<appender name="fileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="logs/rose-demo.log"/>
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c(%F:%L) ## %m%n"/>
+		</layout>
+	</appender>
+	
+	<logger name="com.renren.monitor" additivity="false">
+	   <level value="debug" />
+	   <appender-ref ref="fileAppender" />
+	</logger>
+  
+    <!-- to enable rose info -->
+    <logger name="net.paoding.rose.controllers.ETLController" additivity="false">
+     <level value="debug" />
+     <appender-ref ref="fileAppender" />
+    </logger>
+	
+	<root>
+		<level value="warn"/>
+		<appender-ref ref="fileAppender" />
+	</root>
+	
+</log4j:configuration>
